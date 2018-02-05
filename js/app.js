@@ -14,6 +14,7 @@ $('body').append(`<h1>Hello, Cruel World!</h1>`)
 const createHangman = {
     puzzleWordRando: function(){
         createHangman.puzzleWord.push(createHangman.words[Math.floor(Math.random()*createHangman.words.length)])
+
     },
 
 
@@ -32,18 +33,14 @@ pickLetter: function(){
 
 },
 
+start: function(){
+    if(this.puzzleWord.length === 0){
+      this.puzzleWordRando();
+    }
+}
 
 
-
-
-
-
-
-
-
-
-
- }; // letterSelect end section 
+}; // letterSelect end section 
 
 const viewBuilder = {
 
@@ -66,9 +63,14 @@ const hangController = {
 
 checkLetter: function(){
 
+},
+
+handleClickStart: function(){
+if(createHangman.puzzleWord.length === 0){
+    createHangman.start();
 }
 
-
+},
 
 
 
@@ -78,6 +80,6 @@ checkLetter: function(){
 window.onload = function (){
 viewBuilder.letterBuild();
 $('.alpha').on('click', hangController.checkLetter);
-
+$('#start').on('click', hangController.handleClickStart);
 
 };
