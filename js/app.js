@@ -13,7 +13,7 @@ $('body').append(`<h1>Hello, Cruel World!</h1>`)
 
 const createHangman = {
     puzzleWordRando: function(){
-        createHangman.puzzleWord.push(words[Math.floor(Math.random()*createHangman.words.length)])
+        createHangman.puzzleWord.push(createHangman.words[Math.floor(Math.random()*createHangman.words.length)])
     },
 
 
