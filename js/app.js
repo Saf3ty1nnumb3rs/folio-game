@@ -1,4 +1,4 @@
-$('body').append(`<h1>Hello, Cruel World!</h1>`)
+
 
 
 
@@ -13,14 +13,14 @@ $('body').append(`<h1>Hello, Cruel World!</h1>`)
 
 const createHangman = {
     puzzleWordRando: function(){
-        createHangman.puzzleWord.push(createHangman.words[Math.floor(Math.random()*createHangman.words.length)])
-
+        createHangman.puzzleWord = (createHangman.words[Math.floor(Math.random()*createHangman.words.length)])
+        viewBuilder.puzzleWordBuild();
     },
 
 
 alphabet: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q','R','S','T','U','V','W','X','Y','Z'],
 words:['MANDALORIAN', 'NABOO', 'SKYWALKER', 'VADER', 'TATOOINE', 'PALPATINE', 'CLONE', 'GALAXY', 'REBELLION', 'EMPIRE', 'DESTINY', 'ALLIANCE', 'JEDI', 'CANTINA', 'BLASTER', 'MILLENIUM', 'DISTURBANCE', 'DARKNESS', 'BATTLE', 'DEATHSTAR', 'NERFHERDER', 'DROIDS', 'IMPERIAL','CLONES'],
-puzzleWord: [],
+puzzleWord: "",
 gameOver: false,
 incorrect: 0,
 correct: 0,
@@ -50,10 +50,20 @@ letterBuild: function (){
     
     alphaArray.forEach((letter, i)=>{
         let alphaIndex = 'alpha' + [i];
-        $('body').append(`<button id="letters" class="alpha ${alphaIndex}">${alphaArray[i]}</button>`);
+        $('#letter-box').append(`<button id="${alphaIndex}" class="alpha btn">${alphaArray[i]}</button>`);
     })
 },
-puzzleWordBuild: function(){}
+puzzleWordBuild: function(){
+    let puzzle = createHangman.puzzleWord;
+    puzzle.split();
+    puzzle.forEach((lett, i)=>{
+        $('puzzle-box').append()
+
+
+    })
+
+
+},
 
 
 
