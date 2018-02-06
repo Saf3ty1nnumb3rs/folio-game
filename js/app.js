@@ -25,8 +25,8 @@ letter: "",
 gameOver: false,
 chances: 6,
 correct: 0,
-
-pickLetter: function(letter){
+//Check the letter that has been picked against the puzzle word; track chances; add points
+checkLetter: function(letter){
     let wrongCount = 0;
     for(i=0; i < createHangman.puzzleWord.length; i ++){
         if(letter !== createHangman.puzzleWord[i]){
@@ -42,19 +42,21 @@ pickLetter: function(letter){
     if (wrongCount < createHangman.puzzleWord.length){
         createHangman.correct ++;
     }
-
-    
-    // checkPuzzleArray();
-
-
-
-
 },
 
 start: function(){
     if(this.puzzleWord.length === 0){
       this.puzzleWordRando();
     }
+},
+
+reset: function(){
+    this.correct = 0;
+    this.chances = 6;
+    this.gameOver = false;
+    this.puzzleWord = "";
+    $('#puzzle-box').html('')
+    this.puzzleWordRando();
 }
 
 
@@ -89,13 +91,14 @@ handleClickLetter: function(){
 createHangman.letter = $(this).text()
 console.log(createHangman.letter)
 $(this).addClass()
-createHangman.pickLetter(createHangman.letter); 
+createHangman.checkLetter(createHangman.letter); 
 
 
-}
+},
 
-
-,
+handleClickReset: function(){
+    createHangman.reset();
+},
 
 handleClickStart: function(){
 if(createHangman.puzzleWord.length === 0){
@@ -113,5 +116,6 @@ window.onload = function (){
 viewBuilder.letterBuild();
 $('.alpha').on('click', hangController.handleClickLetter);
 $('#start').on('click', hangController.handleClickStart);
+$('#reset').on('click', hangController.handleClickReset)
 
 };
