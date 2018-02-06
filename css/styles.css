@@ -3,6 +3,9 @@ h1 {
     font-size: 100px;
 
 }
+button {
+    min-width: 39px;
+}
 .alpha {
 
 }
@@ -11,4 +14,16 @@ h1 {
 }
 div.card {
     color: rgba(76, 175, 80, 0);
+}
+/* div.card.A{ */
+    /* color: rgba(76, 175, 80, 1); */
+/* } */
+div.letter-cell {
+    max-width: 60px;
+}
+div.pbox {
+    min-height: 162px;
+}
+button#start {
+
 }
