@@ -54,10 +54,9 @@ letterBuild: function (){
     })
 },
 puzzleWordBuild: function(){
-    let puzzle = createHangman.puzzleWord;
-    puzzle.split();
-    puzzle.forEach((lett, i)=>{
-        $('puzzle-box').append()
+    let puzzle = createHangman.puzzleWord.split('');
+    puzzle.forEach((letter, i)=>{
+        $('#puzzle-box').append(`<div class="card card-body bg-light align-items-center">${puzzle[i]}</div`)
 
 
     })

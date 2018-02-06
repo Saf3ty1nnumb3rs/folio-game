@@ -4,8 +4,11 @@ h1 {
 
 }
 .alpha {
-    
+
 }
 #letters {
     display:inline-flex;
+}
+div.card {
+    color: rgba(76, 175, 80, 0);
 }
