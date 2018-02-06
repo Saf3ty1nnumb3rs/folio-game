@@ -50,7 +50,7 @@ letterBuild: function (){
     
     alphaArray.forEach((letter, i)=>{
         let alphaIndex = 'alpha' + [i];
-        $('#letter-box').append(`<button id="${alphaIndex}" class="alpha btn">${alphaArray[i]}</button>`);
+        $('#letter-box').append(`<button id="${alphaIndex}" class="btn mx-4 my-1">${alphaArray[i]}</button>`);
     })
 },
 puzzleWordBuild: function(){
