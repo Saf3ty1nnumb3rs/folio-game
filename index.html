@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -12,52 +14,201 @@
 </head>
 <body>
     <main>
-        <div class="container crawl-body">
-            <section class="star-wars">
 
-                <div class="crawl">
-                    
-                    <div class="title">
-                        <p>Episode XXX</p>
-                        <h1>This Is The Droid You're Looking For</h1>
-                    </div>
-                    
-                    <p>Mandalorian raiders have captured and tortured Jar Jar Binks and discovered the location of your trusted protocol droid. After tossing Jar Jar into the Sarlac pit, they quickly moved to capture your droid. </p>     
-                    <p>The protocol droid possesses vital information essential to the cause. Word has reached you that the Mandalorians intend to threaten your droid with deletion to procure that information.</p>
-                    <p>The Mandalorians are threatening to toss your droid into the pit where Jar Jar met his untimely demise, but they are willing to free the droid if you can guess there secret code...</p>
+
+<!-- Fix start, reset buttons, add generate next round button -->
+<!-- Add chances, number correct, score -->
+<!-- Add graphics element to game - hanging droid or droid off plank -->
+<!-- Add proper footer -->
+<!-- Focus on styling AFTER MVP achieved -->
+
+
+
+
+
+
+
+
+        <!-- navbar created using bootstrap; phat droid imagery and content inserted -->
+            <nav id="home" class="navbar navbar-expand-md navbar-dark bg-dark navbar-toggleable-md">
+
+                <div class="container inner-nav">
+                      <!--navbar toggle button for small displays  -->
+                    <button class="navbar-toggler navbar-toggler-right order-md-3 col-md-8" id="phat-button" type="button" data-toggle="collapse" data-target="#phat-content" aria-controls="phat-content" aria-expanded="false" aria-label="Toggle Navigation">
+                        <!-- <span class="navbar-toggler-icon"></span>-->
+                        <img class="head-image rounded-circle" src="images/PhatDroids.jpg" alt="Star Wars Toggle"><!-- add image and styling here-->
+
+                    </button>
+                    <!-- "brand" nav image -->
+                    <a class="navbar-brand order-md-1 d-none d-md-inline-block">
+                              
+                        <img class="head-image rounded-circle image-fluid" src="images/PhatDroids.jpg" alt="Empire Symbol" id="header-image">
+
+                    </a>
+                    <!-- Site title -->
+                    <h3 class="header-text text-danger order-md-2 mx-auto text-center">Mandalorian Hang Suite</h3>
+                    <!-- nav content made to be fully collapsible -->
+                    <div class="collapse navbar-collapse order-md-4 " id="phat-content">
+
+                        <div class="navbar-nav flex-sm-wrap ml-auto justify-content-end">
+                            <!-- actual nav content items with location anchors -->
+                            <a class="nav-item nav-link text-info" href="#home">Home</a>
+                            <a class="nav-item nav-link text-info" href="#crawl">Episode XXX</a>
+                            <a class="nav-item nav-link text-info" href="#game">Game</a>
+                            <a class="nav-item nav-link text-info" href="#about">About</a>
+                                <!-- Form Input area non-functional -->
+                                <div class="nav-item">
+                                    <form class="form-inline pl-md-4 ml-auto" id="header-input">
+                                        <input class="form-control mr-2" type="text" placeholder="Get Down Do You?">
+                                        <button class="btn btn-outline-light button-form" type="submit">Force!</button>
+                                    </form>
+                                </div>
+                              
+                          </div><!-- navbar-nav close -->
+                          
+                      </div><!--collapse content close-->
+                    </div><!-- nav container close -->
+            </nav><!-- nav section complete -->
+        
+        
+        <div class="container-fluid">
                 
-                </div>
-                
-            </section>
         </div>
-
 
 
 
         <div class="sky container justify-content-center align-items-center">
             <div class="row">
-                <div class="col-sm-8 mx-auto pbox justify-content-center align-items-center ">
-                    <div id="puzzle-box" class="row mx-2 d-flex flex-nowrap justify-content-center">
+                <div id="game" class="col-sm-8 mx-auto pbox justify-content-center align-items-center ">
+                    <div id="puzzle-box" class="row mx-1 d-flex flex-nowrap justify-content-center mt-5">
 
                     </div>
                 </div>
             </div>
+        
+                    
+           
             <div class="row">
-                <div class="col justify-content-center">
-                    <div class="row justify-content-center">
-                        <button type="button" id="start" class="btn mx-5 my-5">Hyper Drive</button>
+                <div class="col">
+                    <div class="row justify-content-around">
+                        <div class="col-md-2 col-3 align-self-center text-center">
+                            <button type="button" id="start" class="btn mx-1 my-2 action-btn">Hyper Drive</button>
+                            <h6 class="button-text">Hyperdrive</h6>
+                        </div>
                     <!-- </div> -->
                     <!-- <div class="row justify-content-center"> -->
-                        <button type="button" id="reset" class="btn mx-5 my-5">Quit, Nerfherder</button>
+                        <div class="col-lg-1 col-2 align-self-center text-center">
+                            <button type="button" id="reset" class="btn mx-1 my-2 action-btn">Nerfherder</button>
+                            <h6>Eject</h6>
+                        </div> 
+                        <div class="col-2 ml-5 align-items-end text-center">
+                            <div class="label row justify-content-end">    
+                                <h6 class="align-self-center"> Chances </h6>
+                            </div>
+                            <div class="label row justify-content-end">    
+                                <h6 class="align-self-center"> Correct </h6>
+                            </div>
+                            <div class="label row justify-content-end">
+                                <h6 class="align-self-center"> Score </h6>
+                            </div>
+                        </div>
+                        <div id="heads-up-display" class="col-2 mr-2 mr-1 text-center align-items-end mb-3"> 
+                            
+                                
+                                <div class="console letter-cell card card-body bg-light justify-content-center">0</div>     
+                            
+                            
+                                
+                                <div class="console letter-cell card card-body bg-light justify-content-center">0</div>  
+                    
+                                
+                                <div class="console letter-cell card card-body bg-light justify-content-center">0</div>     
+                        
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end "console" row -->
+        </div><!-- end 'sky' container -->
+    <div class="desert container-fluid justify-content-center">
+        <div col>   
+            <div id="letter-box" class="row d-flex-block justify-content-center py-4">   
+            </div>
+            
+        </div>
+    </div>
+    <div id="about" class="container crawl-body">
+                
+        <section class="star-wars">
+
+            <div class="crawl">
+                
+                <div class="title text-center">
+                    <p>Episode XXX</p>
+                    <h1>This IS The Droid You're Looking For</h1>
+                </div>
+                
+                <p>Mandalorian raiders have captured and tortured Jar Jar Binks and discovered the location of your trusted protocol droid. After tossing Jar Jar into the Sarlacc pit, they quickly moved to capture your droid. </p>     
+                <p>The protocol droid possesses vital information essential to the cause. Word has reached you that the Mandalorians intend to threaten your droid with deletion to procure that information.</p>
+                <p>The Mandalorians are threatening to toss your droid into the pit where Jar Jar met his untimely demise, but they are willing to free the droid if you can guess their secret code...</p>
+            
+            </div>
+            
+        </section>
+        
+    </div>
+    <section>
+        <footer id="myFooter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <a class=""><img class="head-image rounded-circle image-fluid" src="images/PhatDroids.jpg" alt="Empire Symbol" id="footer-image">
+                        </a>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5>Get started</h5>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#header-input">Search</a></li>
+                            <li><a href="#game">Game Time</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5>About MHS</h5>
+                        <ul>
+                            <li><a href="#">Company Information</a></li>
+                            <li><a href="#">Contact us</a></li>
+                            <li><a href="#">Reviews</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5>Support</h5>
+                        <ul>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Help desk</a></li>
+                            <li><a href="#">Forums</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="social-networks">
+                            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+                        </div>
+                        <button type="button" class="btn btn-default">Contact us</button>
                     </div>
                 </div>
             </div>
-        </div>
-    <div class="container justify-content-center bg-success">
-        <div col>   
-            <div id="letter-box" class="row d-flex-block justify-content-center py-4"></div>
-        </div>
-    </div>
+            <div class="footer-copyright">
+            </div>
+        </footer>
+                        <!-- <div class="social-networks"> -->
+                                <!-- <a href="#" class="twitter"><i class="fa fa-twitter"></i></a> -->
+                                <!-- <a href="#" class="facebook"><i class="fa fa-facebook-official"></i></a> -->
+                                <!-- <a href="#" class="google"><i class="fa fa-google-plus"></i></a> -->
+                            <!-- </div> -->
+
+            </footer>
+    </section>
  </main>       
   <script src="http://code.jquery.com/jquery-3.3.1.min.js"  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
