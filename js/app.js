@@ -25,6 +25,7 @@ letter: "",
 gameOver: false,
 chances: 6,
 correct: 0,
+score: 0,
 //Check the letter that has been picked against the puzzle word; track chances; add points
 checkLetter: function(letter){
     let wrongCount = 0;
@@ -33,14 +34,16 @@ checkLetter: function(letter){
             wrongCount ++;
 
         } else {
-            $('div.card.'+ createHangman.puzzleWord[i]).css('color', 'rgba(76, 175, 80, 1)');
+            $('span.'+ createHangman.puzzleWord[i]).css('visibility', 'visible');
         }
+        // Subtract lives
     if(wrongCount === createHangman.puzzleWord.length){
         createHangman.chances --;
     }
-} 
+ }     //Increment points  
     if (wrongCount < createHangman.puzzleWord.length){
         createHangman.correct ++;
+        createHangman.score ++;
     }
 },
 
@@ -73,10 +76,11 @@ letterBuild: function (){
         $('#letter-box').append(`<button id="${alphaIndex}" class="btn mx-4 my-1 alpha">${alphaArray[i]}</button>`);
     })
 },
+//Builds puzzle word in the DOM
 puzzleWordBuild: function(){
     let puzzle = createHangman.puzzleWord.split("");
     puzzle.forEach((letter, i)=>{
-        $('#puzzle-box').append(`<div class="${puzzle[i]} letter-cell card card-body bg-light justify-content-center">${puzzle[i]}</div`)
+        $('#puzzle-box').append(`<div class="${puzzle[i]} letter-cell card card-body bg-light justify-content-center"><span class="${puzzle[i]}">${puzzle[i]}</span></div`)
     })
 },
 

@@ -1,9 +1,4 @@
 
-body {
-    
-}
-
-
 h1, h2, h3 {
     font-family: 'Oswald', sans-serif;
 
@@ -45,8 +40,9 @@ div.sky {
 div.desert {
     background-color: #feda4a;
 }
-.card {
-    color: rgba(76, 175, 80, 0);
+span {
+    color: rgb(76, 175, 80);
+    visibility: hidden;
 }
 div#sarlacc {
     background-image: url('../images/Sarlacc.jpg');
@@ -80,8 +76,8 @@ div.pbox {
 }
 button.action-btn { 
     border-radius: 50%;
-    height:60px;
-    width:60px;
+    height:50px;
+    width:50px;
     color: rgba(243, 6, 6, 0);
     background: #EF233C;
     border: none;
@@ -95,7 +91,10 @@ button.action-btn {
     transform: translate(1px, 3px);
     box-shadow: none;
   }
-/* The top crawl was built from a tutorial found here, not my original work : https://css-tricks.com/snippets/css/star-wars-crawl-text/ */
+  .footer-image {
+      max-width: 50vw;
+  }
+/* The top crawl was built from a tutorial found here, not completely my original work : https://css-tricks.com/snippets/css/star-wars-crawl-text/ */
 .crawl-body {
     /* Force the body to fill the entire screen */
     width: 100%;
