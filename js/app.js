@@ -65,14 +65,29 @@ start: function(){
     }
 },
 //Eject - Complete Reset After Game Over
-reset: function(){
+
+nextRound: function(){
     this.correct = 0;
     this.chances = 6;
     this.gameOver = false;
     this.puzzleWord = "";
     $('#puzzle-box').html('')
     this.puzzleWordRando();
-}
+
+
+},
+
+reset: function(){
+    this.correct = 0;
+    this.chances = 6;
+    this.gameOver = false;
+    this.puzzleWord = "";
+    this.score = 0;
+    $('#puzzle-box').html('')
+    this.puzzleWordRando();
+},
+
+
 
 
 }; // letterSelect end section 
@@ -101,8 +116,7 @@ updatePointDisplay:function(score, chance, correct){
     $('#correct').text(ViewHelpers.zeroFill(correct, 2));
     $('#score').text(ViewHelpers.zeroFill(score, 2));
 
-
-},
+}
 
 
 
@@ -126,7 +140,7 @@ handleClickLetter: function(){
     
 createHangman.letter = $(this).text();
 console.log(createHangman.letter);
-$(this).addClass()
+$(this).css('background-color' , 'red')
 createHangman.checkLetter(createHangman.letter); 
 
 
@@ -180,6 +194,7 @@ window.onload = function (){
 viewBuilder.letterBuild();
 $('.alpha').on('click', hangController.handleClickLetter);
 $('#start').on('click', hangController.handleClickStart);
-$('#reset').on('click', hangController.handleClickReset)
+$('#reset').on('click', hangController.handleClickReset);
+$('eject').on('click' , )
 
 };

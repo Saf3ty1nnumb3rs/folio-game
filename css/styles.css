@@ -21,6 +21,11 @@ button#phat-button {
     height: auto;
     box-shadow: 3px 4px 12px #ec3434
 }
+.foot-image {
+    width: 20vw;
+    height: auto;
+    box-shadow: 3px 4px 12px #ec3434
+}
 .top-image-left {
     width: 50vw;
     height:auto;
@@ -94,6 +99,17 @@ button.action-btn {
   .footer-image {
       max-width: 50vw;
   }
+  li.list-group-item {
+      border: none;
+      outline: none;
+
+
+  }
+
+  #sarlacc {
+    width: 100%;
+    height: auto;
+  }
 /* The top crawl was built from a tutorial found here, not completely my original work : https://css-tricks.com/snippets/css/star-wars-crawl-text/ */
 .crawl-body {
     /* Force the body to fill the entire screen */
@@ -105,6 +121,7 @@ button.action-btn {
     background-image: url("../images/stars.jpg");
     
   }
+
   .star-wars {
     /* Flexbox to center the entire element on the screen */
     display: flex;
