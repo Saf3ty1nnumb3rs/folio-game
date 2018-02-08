@@ -79,6 +79,7 @@ nextRound: function(){
     this.puzzleWord = "";
     $('#letter-box .btn.alpha').css('background-color' , 'rgb(240, 190, 190)').prop("disabled",false);
     $('#puzzle-box').html('')
+    $('#spaceship').css({'top':'30vh','right': '80vw'});
     // viewBuilder.updatePointDisplay();
     this.puzzleWordRando();
 
@@ -176,6 +177,7 @@ createHangman.checkLetter(createHangman.letter);
 },
 
 handleClickReset: function(){
+    $('#c3po').css({'visibility': 'hidden', 'top':'35vh', 'right':'45vw'});
     createHangman.reset();
 },
 
@@ -196,7 +198,7 @@ handleUpdatePointDisplay: function(){
 
 handleClickNextRound: function(){
     if((createHangman.gameOver === false) && (createHangman.correct === createHangman.puzzleWord.length)){
-
+        $('#c3po').css({'visibility': 'hidden', 'top':'35vh', 'right':'45vw'});
     createHangman.nextRound();
     }
 },
@@ -222,10 +224,10 @@ flyForrestFly: function(){
     } else if (createHangman.chances === 1){
         $('#spaceship').css({'top':'35vh','right': '45vw'});
     } else {
+        $('#c3po').css({'visibility': 'visible', 'top': '68vh', 'transition':'2s'});
         $('#spaceship').css('visibility', 'hidden');
+        
     }     
-
-
 
 },
 
@@ -249,8 +251,8 @@ gameOverCheck: function(){
         createHangman.gameOver = true;
         //disable all buttons excluding the reset button
         //alert - your droid is dead!!!!
-
-        setTimeout(alert('Your Droid has perished!'), 4000);
+        alert('Your Droid has perished!');
+        // setTimeout(alert('Your Droid has perished!'), 4000);
     }
 },
 
@@ -263,7 +265,7 @@ checkForWin: function(){
 };
 
 $(".side-panel").on("click", function(){
-    $(this).toggleClass("side-panel--close");
+    $(this).toggleClass("side-panel-close");
   });
 
 

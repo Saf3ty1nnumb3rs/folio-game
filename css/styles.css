@@ -133,9 +133,12 @@ button.action-btn {
   }
   #c3po {
       width:10vw;
+      top: 35vh;
+      right:45vw;
       z-index: 1;
-    /* visibility: hidden; */
+    visibility: hidden;
     transition:2s;
+    position: absolute;
   }
   /* .pit{
       width:100vw;
@@ -214,7 +217,7 @@ button.action-btn {
     transition: 2s;
     background-color: rgba(76, 175, 80, 0.452);
   }
-  .side-panel--close{
+  .side-panel-close{
     font-family: 'Press Start 2P', cursive;
     left: 98vw;
     padding:10px 40px;
