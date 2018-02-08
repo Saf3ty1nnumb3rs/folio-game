@@ -15,11 +15,12 @@ const createHangman = {
     puzzleWordRando: function(){
         createHangman.puzzleWord = (createHangman.words[Math.floor(Math.random()*createHangman.words.length)])
         viewBuilder.puzzleWordBuild();
+        hangController.handleUpdatePointDisplay();
     },
 
 
 alphabet: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q','R','S','T','U','V','W','X','Y','Z'],
-words:['MANDALORIAN', 'NABOO', 'SKYWALKER', 'VADER', 'TATOOINE', 'PALPATINE', 'CLONE', 'GALAXY', 'REBELLION', 'EMPIRE', 'DESTINY', 'ALLIANCE', 'JEDI', 'CANTINA', 'BLASTER', 'MILLENIUM', 'DISTURBANCE', 'DARKNESS', 'BATTLE', 'DEATHSTAR', 'NERFHERDER', 'DROIDS', 'IMPERIAL','CLONES'],
+words:['MANDALORIAN', 'NABOO', 'SKYWALKER', 'VADER', 'TATOOINE', 'PALPATINE', 'CLONE', 'GALAXY', 'REBELLION', 'EMPIRE', 'DESTINY', 'ALLIANCE', 'JEDI', 'CANTINA', 'BLASTER', 'MILLENIUM', 'DISTURBANCE', 'DARKNESS', 'BATTLE', 'DEATHSTAR', 'NERFHERDER', 'DROIDS', 'IMPERIAL','CLONES', 'RAIDER', 'TRAP', 'KENOBI', 'SENATE', 'GALAXY', 'HYPERDRIVE'],
 puzzleWord: "",
 letter: "",
 gameOver: true,
@@ -31,6 +32,7 @@ score: 0,
 checkLetter: function(letter){
 
     
+    createHangman.wrong = 0;
 
     for(i=0; i < createHangman.puzzleWord.length; i ++){
             //check if clicked value equals any of the letters in the puzzle array
@@ -71,11 +73,12 @@ start: function(){
 nextRound: function(){
     this.correct = 0;
     this.chances = 6;
+    this.wrong = 0;
     this.gameOver = false;
     this.puzzleWord = "";
     $('#letter-box .btn.alpha').css('background-color' , 'rgb(240, 190, 190)').prop("disabled",false);
     $('#puzzle-box').html('')
-    viewBuilder.updatePointDisplay();
+    // viewBuilder.updatePointDisplay();
     this.puzzleWordRando();
 
 
@@ -86,7 +89,7 @@ reset: function(){
     this.score = 0;
     $('div#letter-box .btn.alpha').css('background-color' , 'rgb(240, 190, 190)').prop("disabled",false);
     $('#puzzle-box').html('')
-    viewBuilder.updatePointDisplay();
+    // viewBuilder.updatePointDisplay();
     this.puzzleWordRando();
 },
 
@@ -115,9 +118,9 @@ puzzleWordBuild: function(){
 },
 updatePointDisplay:function(score, chance, correct){
 
-    $('#chances').text(ViewHelpers.zeroFill(createHangman.chances, 2));
-    $('#correct').text(ViewHelpers.zeroFill(createHangman.correct, 2));
-    $('#score').text(ViewHelpers.zeroFill(createHangman.score, 2));
+    $('#chances').text(ViewHelpers.zeroFill(chance, 2));
+    $('#correct').text(ViewHelpers.zeroFill(correct, 2));
+    $('#score').text(ViewHelpers.zeroFill(score, 2));
 
 }
 
@@ -145,9 +148,9 @@ handleClickLetter: function(){
 createHangman.letter = $(this).text();
 console.log(createHangman.letter);
 //sets color to red on click as indicator
-$(this).css('background-color' , 'red')
+$(this).css('background-color' , 'red');
 //disables button on click
-$(this).prop("disabled",true);
+$(this).prop("disabled", true);
 //sends letter to checkLetter function on call
 createHangman.checkLetter(createHangman.letter); 
     }
@@ -179,9 +182,12 @@ handleClickNextRound: function(){
     createHangman.nextRound();
     }
 }
-
-
 };
+
+
+
+
+
 
 const gameCountController = {
 

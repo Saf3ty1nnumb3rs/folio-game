@@ -6,35 +6,19 @@ h1, h2, h3 {
 button {
     min-width: 39px;
 }
-.btn.action-btn:focus {
-    outline: none;
-}
-.btn.action-btn:active {
-    outline-color: rgba(255, 0, 0, 0.411);
-    border-color: rgba(255, 0, 0, 0.411);
-    }
+
 button#phat-button {
-    min-width: 60px;
+    min-width: 50px;
 }
 .head-image {
-    width: 15vw;
+    width: 14vw;
     height: auto;
     box-shadow: 3px 4px 12px #ec3434
 }
 .foot-image {
-    width: 20vw;
+    width: 15vw;
     height: auto;
     box-shadow: 3px 4px 12px #ec3434
-}
-.top-image-left {
-    width: 50vw;
-    height:auto;
-    background-image: url('../images/jedi.jpg');
-}
-.top-image-right {
-    width: 50vw;
-    height:auto;
-    background-image: url('../images/sith.png');
 }
 #letters {
     display:inline-flex;
@@ -68,6 +52,7 @@ div#heads-up-display div.console{
     border-color: #2B2D42;
     color: rgba(76, 175, 80, 1);
 }
+/* LETTER BUTTONS ---------------------------------------- */
 .alpha {
     background-color: rgb(240, 190, 190);
     border-radius: 30%;
@@ -80,6 +65,7 @@ div#heads-up-display div.console{
 div.pbox {
     min-height: 162px;
 }
+/* BUTTON ANIMATION --------------------------------- */
 button.action-btn { 
     border-radius: 50%;
     height:50px;
@@ -97,6 +83,7 @@ button.action-btn {
     transform: translate(1px, 3px);
     box-shadow: none;
   }
+  /* END BUTTON ANIMATION ----------------------- */
   .footer-image {
       max-width: 50vw;
   }
@@ -111,7 +98,8 @@ button.action-btn {
     width: 100%;
     height: auto;
   }
-/* The top crawl was built from a tutorial found here, not completely my original work : https://css-tricks.com/snippets/css/star-wars-crawl-text/ */
+  /*ANIMATE WORD CRAWL ------------------------------------------------------------------  */
+/* The footer crawl was built from a tutorial found here, not completely my original work : https://css-tricks.com/snippets/css/star-wars-crawl-text/ */
 .crawl-body {
     /* Force the body to fill the entire screen */
     width: 100%;
@@ -119,8 +107,7 @@ button.action-btn {
     /* Hide elements that flow outside the viewable space */
     overflow: hidden;
     /* Black background for the screen */
-    background-image: url("../images/stars.jpg");
-    
+    background-image: url("../images/stars.jpg");  
   }
 
   .star-wars {
@@ -165,3 +152,4 @@ button.action-btn {
       transform: rotateX(25deg) translateZ(-2500px);
     }
   }
+  /* END CRAWL ------------------------------------------------------------------ */
