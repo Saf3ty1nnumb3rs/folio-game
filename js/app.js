@@ -22,19 +22,20 @@ alphabet: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
 words:['MANDALORIAN', 'NABOO', 'SKYWALKER', 'VADER', 'TATOOINE', 'PALPATINE', 'CLONE', 'GALAXY', 'REBELLION', 'EMPIRE', 'DESTINY', 'ALLIANCE', 'JEDI', 'CANTINA', 'BLASTER', 'MILLENIUM', 'DISTURBANCE', 'DARKNESS', 'BATTLE', 'DEATHSTAR', 'NERFHERDER', 'DROIDS', 'IMPERIAL','CLONES'],
 puzzleWord: "",
 letter: "",
-gameOver: false,
+gameOver: true,
 chances: 6,
 correct: 0,
+wrong: 0,
 score: 0,
 //Check the letter that has been picked against the puzzle word; track chances; add points
 checkLetter: function(letter){
 
-    let wrongCount = 0;
+    
 
     for(i=0; i < createHangman.puzzleWord.length; i ++){
             //check if clicked value equals any of the letters in the puzzle array
         if(letter !== createHangman.puzzleWord[i]){
-            wrongCount ++;
+            createHangman.wrong ++;
             //grab letter and make visible; increment correct value;check win
         } else {
             $('span.'+ createHangman.puzzleWord[i]).css('visibility', 'visible');
@@ -43,14 +44,14 @@ checkLetter: function(letter){
         }
     }
 // Subtract lives - decrease chances if wrong count === word length
-    if(wrongCount === createHangman.puzzleWord.length){
+    if(createHangman.wrong === createHangman.puzzleWord.length){
         createHangman.chances --;
         gameCountController.gameOverCheck();
     }
 
     
 //Increment points - score count 
-    if (wrongCount < createHangman.puzzleWord.length){
+    if (createHangman.wrong < createHangman.puzzleWord.length){
         
         createHangman.score ++;
     }
@@ -60,7 +61,8 @@ checkLetter: function(letter){
 },
 
 start: function(){
-    if(this.puzzleWord.length === 0){  
+    if(this.puzzleWord.length === 0){ 
+      createHangman.gameOver = false;   
       this.puzzleWordRando();
     }
 },
@@ -71,8 +73,9 @@ nextRound: function(){
     this.chances = 6;
     this.gameOver = false;
     this.puzzleWord = "";
-    $(this).css('background-color' , 'red')
+    $('#letter-box .btn.alpha').css('background-color' , 'rgb(240, 190, 190)').prop("disabled",false);
     $('#puzzle-box').html('')
+    viewBuilder.updatePointDisplay();
     this.puzzleWordRando();
 
 
@@ -81,8 +84,9 @@ nextRound: function(){
 reset: function(){
     this.nextRound();
     this.score = 0;
-    $(this).css('background-color' , 'red')
+    $('div#letter-box .btn.alpha').css('background-color' , 'rgb(240, 190, 190)').prop("disabled",false);
     $('#puzzle-box').html('')
+    viewBuilder.updatePointDisplay();
     this.puzzleWordRando();
 },
 
@@ -111,9 +115,9 @@ puzzleWordBuild: function(){
 },
 updatePointDisplay:function(score, chance, correct){
 
-    $('#chances').text(ViewHelpers.zeroFill(chance, 2));
-    $('#correct').text(ViewHelpers.zeroFill(correct, 2));
-    $('#score').text(ViewHelpers.zeroFill(score, 2));
+    $('#chances').text(ViewHelpers.zeroFill(createHangman.chances, 2));
+    $('#correct').text(ViewHelpers.zeroFill(createHangman.correct, 2));
+    $('#score').text(ViewHelpers.zeroFill(createHangman.score, 2));
 
 }
 
@@ -136,12 +140,17 @@ const ViewHelpers = {
 const hangController = {
 
 handleClickLetter: function(){
+    if(createHangman.gameOver === false){
     
 createHangman.letter = $(this).text();
 console.log(createHangman.letter);
+//sets color to red on click as indicator
 $(this).css('background-color' , 'red')
+//disables button on click
+$(this).prop("disabled",true);
+//sends letter to checkLetter function on call
 createHangman.checkLetter(createHangman.letter); 
-
+    }
 
 },
 
@@ -165,7 +174,10 @@ handleUpdatePointDisplay: function(){
 },
 
 handleClickNextRound: function(){
+    if((createHangman.gameOver === false) && ((createHangman.correct + createHangman.wrong) === createHangman.puzzleWord.length)){
+
     createHangman.nextRound();
+    }
 }
 
 
@@ -177,17 +189,18 @@ const gameCountController = {
 gameOverCheck: function(){
 
     if(createHangman.chances === 0){
+        createHangman.gameOver = true;
         //disable all buttons excluding the reset button
         //alert - your droid is dead!!!!
 
-        alert('Your Droid has perished!');
+        setTimeout(alert('Your Droid has perished!'), 4000);
     }
 },
 
 checkForWin: function(){
 
     if(createHangman.correct >= createHangman.puzzleWord.length){
-        alert('Your Droid will be forever grateful!');
+        setTimeout(alert('Your Droid will be forever grateful!'), 4000);
     }
 }
 };
