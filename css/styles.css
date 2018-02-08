@@ -69,6 +69,7 @@ div#heads-up-display div.console{
     color: rgba(76, 175, 80, 1);
 }
 .alpha {
+    background-color: rgb(240, 190, 190);
     border-radius: 30%;
     font-family: 'Press Start 2P', cursive;
     box-shadow: inset 0 0 10px rgb(43, 4, 4);

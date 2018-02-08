@@ -71,6 +71,7 @@ nextRound: function(){
     this.chances = 6;
     this.gameOver = false;
     this.puzzleWord = "";
+    $(this).css('background-color' , 'red')
     $('#puzzle-box').html('')
     this.puzzleWordRando();
 
@@ -78,11 +79,9 @@ nextRound: function(){
 },
 
 reset: function(){
-    this.correct = 0;
-    this.chances = 6;
-    this.gameOver = false;
-    this.puzzleWord = "";
+    this.nextRound();
     this.score = 0;
+    $(this).css('background-color' , 'red')
     $('#puzzle-box').html('')
     this.puzzleWordRando();
 },
@@ -163,6 +162,10 @@ handleUpdatePointDisplay: function(){
 
     viewBuilder.updatePointDisplay(score, chance, correct);
 
+},
+
+handleClickNextRound: function(){
+    createHangman.nextRound();
 }
 
 
@@ -195,6 +198,6 @@ viewBuilder.letterBuild();
 $('.alpha').on('click', hangController.handleClickLetter);
 $('#start').on('click', hangController.handleClickStart);
 $('#reset').on('click', hangController.handleClickReset);
-$('eject').on('click' , )
+$('#next-round').on('click' , hangController.handleClickNextRound);
 
 };
