@@ -49,6 +49,7 @@ checkLetter: function(letter){
     if(createHangman.wrong === createHangman.puzzleWord.length){
         createHangman.chances --;
         gameCountController.gameOverCheck();
+        animateEvent.flyForrestFly();
     }
 
     
@@ -93,10 +94,14 @@ reset: function(){
     this.puzzleWordRando();
 },
 
-
-
-
 }; // letterSelect end section 
+
+
+
+
+
+
+
 
 const viewBuilder = {
 
@@ -123,13 +128,18 @@ updatePointDisplay:function(score, chance, correct){
     $('#score').text(ViewHelpers.zeroFill(score, 2));
 
 }
-
-
-
-
 };
 
+
+
+
+
+
+
 const ViewHelpers = {
+
+
+
     zeroFill: function(number, length){
       let numString = number.toString();
       for(let i = numString.length; i < length; i ++){
@@ -139,6 +149,14 @@ const ViewHelpers = {
       }
       
     };
+
+
+
+
+
+
+
+
 
 const hangController = {
 
@@ -177,11 +195,44 @@ handleUpdatePointDisplay: function(){
 },
 
 handleClickNextRound: function(){
-    if((createHangman.gameOver === false) && ((createHangman.correct + createHangman.wrong) === createHangman.puzzleWord.length)){
+    if((createHangman.gameOver === false) && (createHangman.correct === createHangman.puzzleWord.length)){
 
     createHangman.nextRound();
     }
-}
+},
+
+};
+
+
+
+
+
+
+const animateEvent = {
+
+flyForrestFly: function(){
+    if(createHangman.chances === 5){
+        $('#spaceship').css('visibility', 'visible');
+    } else if (createHangman.chances === 4){
+        $('#spaceship').css({'right': '70vw', 'transition': '3s'});
+    } else if (createHangman.chances === 3){
+        $('#spaceship').css({'right': '60vw'});
+    } else if (createHangman.chances === 2){
+        $('#spaceship').css({'right': '50vw'});
+    } else if (createHangman.chances === 1){
+        $('#spaceship').css({'top':'35vh','right': '45vw'});
+    } else {
+        $('#spaceship').css('visibility', 'hidden');
+    }     
+
+
+
+},
+
+
+
+
+
 };
 
 
@@ -210,6 +261,10 @@ checkForWin: function(){
     }
 }
 };
+
+$(".side-panel").on("click", function(){
+    $(this).toggleClass("side-panel--close");
+  });
 
 
 window.onload = function (){

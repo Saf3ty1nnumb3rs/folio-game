@@ -82,6 +82,9 @@
 
         <div class="container">
             <img id="sarlacc" src="images/Sarlacc.jpg" alt="Smelly Sarlacc Pit">
+            <img id="spaceship" src="images/space_ship.png" alt="Mandalorian Ship">
+            <img id="c3po" src="images/space_ship.png" alt="C3PO">
+
         
         </div>
 
@@ -103,8 +106,6 @@
                             <button type="button" id="start" class="btn mx-1 my-2 action-btn">Warp</button>
                             <h6 class="button-text">Warp</h6>
                         </div>
-                        <!-- </div> -->
-                        <!-- <div class="row justify-content-center"> -->
                         <div class="col-lg-2 col-3 align-self-center text-center">
                             <button type="button" id="next-round" class="btn mx-1 my-2 action-btn">Nextround</button>
                             <h6 class="text-center">Engage</h6>
@@ -113,29 +114,20 @@
                             <button type="button" id="reset" class="btn mx-1 my-2 action-btn">Reset</button>
                             <h6 class="text-center">Eject</h6>
                         </div>
-                        <div class="col-lg-2 col-3 ml-5 align-items-end text-center">
-                            <div class="label row justify-content-end">
-                                <h6  class="align-self-center"> Chances </h6>
-                            </div>
-                            <div class="label row justify-content-end">
-                                <h6  class="align-self-center"> Correct </h6>
-                            </div>
-                            <div class="label row justify-content-end">
-                                <h6 class="align-self-center"> Score </h6>
-                            </div>
-                        </div>
-                        <div id="heads-up-display" class="col-md-3 col-2 mr-2 text-center align-items-end mb-3">
+                        
+                        <div id="heads-up-display" class="col-md-3 col-2 mr-2 text-center align-items-center mb-3">
 
 
-                            <div class="console letter-cell card card-body bg-light"><h5 id="chances" class="row mr-2">00</h5></div>
+                            <div class="console letter-cell card card-body bg-light my-1"><h5 id="chances" class="row mr-2">00</h5></div>
+                            <h6  class="align-self-center">Chance</h6>
 
 
+                            <div class="console letter-cell card card-body bg-light justify-content-center my-1"><h5 id="correct" class="row mr-2">00</h5></div>
+                            <h6  class="align-self-center">Correct</h6>
 
-                            <div class="console letter-cell card card-body bg-light justify-content-center"><h5 id="correct" class="row mr-2">00</h5></div>
-
-
-                            <div class="console letter-cell card card-body bg-light justify-content-center"><h5 id="score" class="row mr-2">00</h5></div>
-
+                            <div class="console letter-cell card card-body bg-light justify-content-center my-1"><h5 id="score" class="row mr-2">00</h5></div>
+                            <h6 class="align-self-center">Score</h6>
+                            
                         </div>
                     </div>
                 </div>
