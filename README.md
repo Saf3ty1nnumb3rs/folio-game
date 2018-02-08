@@ -10,3 +10,4 @@ Feeling nosy? Check project workflow at: https://trello.com/b/38FTc3Z8/wdi-proje
 
 For all source code and related documents go to GitHub: https://github.com/Saf3ty1nnumb3rs/folio-game .
 
+I used jQuery, javascript, and CSS for this project. Any other libraries are superfluous and will be edited out in this project.
